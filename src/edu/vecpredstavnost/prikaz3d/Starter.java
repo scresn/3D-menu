@@ -6,7 +6,7 @@ public class Starter
 {
 	public static void main(String[] args)
 	{
-		new JoglApplication(new TestClass(), "Hello", 480, 320, false);
+		new JoglApplication(new ModelViewer(), "Hello", 480, 320, false);
 	}
 
 }
