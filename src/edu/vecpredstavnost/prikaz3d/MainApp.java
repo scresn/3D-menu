@@ -14,19 +14,21 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttribute;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 import com.badlogic.gdx.graphics.g3d.loaders.obj.ObjLoader;
 
 
 
-public class ModelViewer implements ApplicationListener
+public class MainApp implements ApplicationListener
 {
 	// objekt
 	int lastX, lastY;
 	//private Mesh triangle;
 	Mesh[] cube;
 	Mesh obj;
+	Texture tex;
 	
 	/*private float[] tocke = new float[] {
 		-0.5f, -0.5f, 0, Color.RED.toFloatBits(),
@@ -60,7 +62,7 @@ public class ModelViewer implements ApplicationListener
 		triangle.setIndices(new short[] {0, 1, 2});*/
 		
 		// doloèi kocko
-		cube = new Mesh[6];
+		/*cube = new Mesh[6];
 		
 		for (int i = 0; i < cube.length; i++) {
 			cube[i] = new Mesh (true, 4, 4,
@@ -102,12 +104,13 @@ public class ModelViewer implements ApplicationListener
 				 0.5f, -0.5f, -0.5f, Color.BLACK.toFloatBits(),
 				-0.5f, -0.5f,  0.5f, Color.BLACK.toFloatBits(),
 				-0.5f, -0.5f, -0.5f, Color.BLACK.toFloatBits(),
-		});
+		});*/
 		
 		// obj model
-		//obj = ol.loadObj(Gdx.files.internal("data/monkey.obj").read(), true);
-		obj = ObjLoader.loadObj(Gdx.files.internal("data/chest.obj").read());
-		//obj = ModelLoaderOld.loadObj(Gdx.files.internal("data/cube.g3dt.txt").read());
+		obj = ObjLoader.loadObj(Gdx.files.internal("data/Butterfly.obj").read());
+		//obj = ObjLoader.loadObj(Gdx.files.internal("data/monkey.obj").read());
+		//obj = ObjLoader.loadObj(Gdx.files.internal("data/chest.obj").read());
+		tex = new Texture(Gdx.files.internal("data/Butterfly_g.jpg"));
 		
 		
 		// naloži zvok
@@ -205,8 +208,10 @@ public class ModelViewer implements ApplicationListener
 		Gdx.gl10.glLightfv(GL10.GL_LIGHT0, GL10.GL_POSITION, new float[]{0, 0, 1, 1}, 0);
 		
 		//triangle.render(GL10.GL_TRIANGLES, 0, 3);
+		
 		//for (Mesh face : cube)
 		//	face.render(GL10.GL_TRIANGLE_STRIP, 0, 4);
+		
 		obj.render(GL.GL_TRIANGLES);
 	}
 	
