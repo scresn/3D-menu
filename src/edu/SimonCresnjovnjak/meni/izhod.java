@@ -1,8 +1,8 @@
-package edu.vecpredstavnost.prikaz3d;
+package edu.SimonCresnjovnjak.meni;
 
 import com.badlogic.gdx.Gdx;
 
-public class QuitState implements State {
+public class izhod implements Stanje {
 
 	@Override
 	public void onCreate() {

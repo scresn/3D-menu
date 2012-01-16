@@ -1,4 +1,4 @@
-package edu.vecpredstavnost.prikaz3d;
+package edu.SimonCresnjovnjak.meni;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttribute;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 
-public class AboutState implements State {
+public class avtor implements Stanje {
 
 	Camera cam;
 	Texture texture;
@@ -18,13 +18,13 @@ public class AboutState implements State {
 	@Override
 	public void onCreate() {
 
-		texture = new Texture(Gdx.files.internal("data/menu/more.png"));
+		texture = new Texture(Gdx.files.internal("avtor_pd.png"));
 
 		mesh = new Mesh(true, 4, 4, new VertexAttribute(Usage.Position, 3,
 				"a_position"), new VertexAttribute(Usage.TextureCoordinates, 2,
 				"a_texCoords"));
-		mesh.setVertices(new float[] { -1, -0.5f, 1, 0, 1, 1, -0.5f, 1, 1, 1,
-				1, 0.5f, 1, 1, 0.5f, -1, 0.5f, 1, 0, 0.5f });
+		mesh.setVertices(new float[] { -1, -1.0f, 1, 0, 1.0f, 1, -1.0f, 1, 1,
+				1.0f, 1, 1.0f, 1, 1, 0, -1, 1.0f, 1, 0, 0 });
 		mesh.setIndices(new short[] { 0, 1, 2, 3 });
 	}
 
@@ -43,9 +43,9 @@ public class AboutState implements State {
 	}
 
 	@Override
-	public void onResize(int w, int h) {
+	public void onResize(int sirina, int visina) {
 
-		float aspectRatio = (float) w / (float) h;
+		float aspectRatio = (float) sirina / (float) visina;
 		cam = new PerspectiveCamera(67, 2f * aspectRatio, 2f);
 		cam.position.x = 0;
 		cam.position.y = 0;
